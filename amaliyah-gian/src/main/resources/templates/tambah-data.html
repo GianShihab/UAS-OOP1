@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <style>
+     .btn_style{
+      border: 1px solid #0000FF;
+      border-radius: 5px;
+      padding: 4px 65px;
+      color: white;
+      background-color: #1E90FF;
+     </style>
+    <title>Form Tambah Data</title>
+</head>
+<body>
+<div>
+    <h4>Tambah Data</h4>
+    <div>
+        <form action="#" th:action="@{/simpan}" th:object="${data}" method="post">
+            <table>
+                <tr>
+                    <td>Nim</td>
+                    <td><input type="text" th:field="*{nim}" id="nim"></td>
+                </tr>
+                <tr>
+                    <td>Nama</td>
+                    <td><input type="text" th:field="*{nama}" id="nama"></td>
+                </tr>
+                <tr>
+                    <td>Jurusan</td>
+                    <td><input type="text" th:field="*{jurusan}" id="jurusan"></td>
+                </tr>
+                <tr>
+                    <td>Alamat</td>
+                    <td><input type="text" th:field="*{alamat}" id="alamat"></td>
+                </tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr>
+                    <td></td>
+                    <td><button class="btn_style">Simpan</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>

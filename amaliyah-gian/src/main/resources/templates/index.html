@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+     .btn_style{
+      border: 1px solid #0000FF;
+      border-radius: 5px;
+      padding: 4px 55px;
+      color: white;
+      background-color: #1E90FF;
+     </style>
+    <style>
+     .bt_style{
+      border: 1px solid #0000FF;
+      border-radius: 10px;
+      padding: 2px 10px;
+      color: white;
+      background-color: #1E90FF;
+     </style>
+    <style type="text/css">
+    table {
+        color: #333333;
+        border-width: 1px;
+        border-collapse: collapse;
+    }
+    table th {
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        border-color: #D3D3D3;
+        background-color: white;
+        color: #ffffff;
+    }
+    table tr:hover td {
+        cursor: pointer;
+    }
+    table tr:nth-child(even) td{
+        background-color: #E0FFFF;
+        padding : 9px;
+    }
+    table td {
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        border-color: #D3D3D3;
+        background-color: #ffffff;
+    }
+</style>
+    <title>Aplikasi Data Mahasiswa</title>
+</head>
+
+<center> <h2> Selamat Datang Di Aplikasi Data Mahasiswa</h2></center>
+<a href="/tambah"><button class="btn_style">Tambah</button></a>
+
+<div th:switch="${data}">
+    <div>
+        <h2 th:case="null">Tidak ada data</h2>
+        <div th:case="*">
+            <table border='1'>
+                <thead>
+
+                <tr bgcolor='#EE6868' align='center'>
+                    <th><font color="#1E90FF">Nim</font></th>
+                    <th><font color="#1E90FF">Nama</font></th>
+                    <th><font color="#1E90FF">Jurusan</font></th>
+                    <th><font color="#1E90FF">Alamat</font></th>
+                    <th><font color="#1E90FF">Opsi</font></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="data : ${data}">
+                    <td th:text="${data.nim}"></td>
+                    <td th:text="${data.nama}"></td>
+                    <td th:text="${data.jurusan}"></td>
+                    <td th:text="${data.alamat}"></td>
+                    <td><a th:href="@{/ubah/{nim}(nim=${data.nim})}"><button class="bt_style">Ubah</button></a>
+                        <a th:href="@{/hapus/{nim}(nim=${data.nim})}"><button class="bt_style">Hapus</button></a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
